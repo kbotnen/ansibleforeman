@@ -1,0 +1,17 @@
+#
+ubuntu_all:
+    hostfilter: 'facts.osfamily = Debian'
+ubuntu_precise_all:
+    hostfilter: 'facts.osfamily = Debian and facts.operatingsystemrelease = "12.04"'
+ubuntu_trusty_all:
+    hostfilter: 'facts.osfamily = Debian and facts.operatingsystemrelease = "14.04"'
+ubuntu_failed:
+    hostfilter: 'facts.osfamily = Debian and (status.failed > 0 or status.failed_restarts > 0)'
+ubuntu_production:
+   hostfilter: 'facts.osfamily = Debian and last_report > "6 hours ago" and environment = production'
+ubuntu_test:
+    hostfilter: 'facts.osfamily = Debian and last_report > "6 hours ago" and environment = test'
+ubuntu_dev:
+    hostfilter: 'facts.osfamily = Debian and last_report > "6 hours ago" and environment = dev'
+vmware:
+    hostfilter: 'facts.virtual = vmware"'
